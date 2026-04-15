@@ -10,6 +10,7 @@ import { fetchProducts } from './api/axios'
 import { ProductDetails } from './pages/ProductDetails';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import NotFound from "./pages/NotFound";
 
 const App = () => {
 
@@ -47,11 +48,16 @@ const App = () => {
           <Route path='/' element={<Home products={products} />} />
           <Route path='/men' element={<Men products={products} />} />
           <Route path='/women' element={<Women products={products} />} />
-          <Route path="/product/:id" element={<ProductDetails products={products} />} />         
+          <Route path="/product/:id" element={<ProductDetails products={products} />} />
           <Route path='/cart' element={<Cart />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
-      <ToastContainer position="top-right" autoClose={3000} />
+      <ToastContainer
+        position="top-center"
+        autoClose={2000}
+        toastClassName="!w-auto !max-w-[90%] sm:!max-w-md !mx-auto"
+      />
     </div>
   )
 }

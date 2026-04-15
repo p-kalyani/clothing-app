@@ -9,10 +9,10 @@ const Cart = () => {
 
   if (cartdata.length === 0) return <h2 className="text-center mt-10 text-xl">Your cart is empty</h2>;
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
+    <div className="p-4 sm:p-6 bg-gray-100 min-h-screen">
       <h2 className="text-2xl font-bold mb-6">Cart Items</h2>
       {cartdata.map(product => (
-        <div className="flex items-center gap-4 bg-white p-4 mb-4 shadow rounded-lg" key={product.id}>
+         <div className="flex flex-col sm:flex-row items-center gap-4 bg-white p-4 mb-4 shadow rounded-lg" key={product.id}>
           <img className="h-20" src={product.image} alt={product.title} width="100px" />
           <div className="flex-1">
             <h4 className="font-semibold">{product.title}</h4>

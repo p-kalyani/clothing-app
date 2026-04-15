@@ -4,15 +4,19 @@ export const ProductDetails = ({ products }) => {
   const { id } = useParams();
   const product = products.find(p => p.id === Number(id));
 
-  if (!product) return <p>Product not found</p>;
+  if (!product) return <p>Not found</p>;
 
   return (
-    <div className="p-6">
-      <img src={product.image} className="h-60" />
-      <h2>{product.title}</h2>
-      <p>{product.description}</p>
-      <p>₹ {product.price}</p>
+    <div className="p-4 sm:p-6 flex flex-col md:flex-row gap-6">
+
+      <img className="h-60 mx-auto md:mx-0" src={product.image} />
+
+      <div>
+        <h2 className="text-xl font-bold">{product.title}</h2>
+        <p className="mt-2 text-gray-600">{product.description}</p>
+        <p className="mt-3 text-lg font-semibold text-green-600">₹ {product.price}</p>
+      </div>
+
     </div>
   );
 };
-
